@@ -1,0 +1,16 @@
+{
+  "name": "week-7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "devDependencies": {
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  },
+  "scripts": {
+    "test": "npm start"
+  },
+  "keywords": ["fadli"],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,55 +1,55 @@
-// Import elemen-elemen DOM dari HTML
-const NamaSembakoInput = document.getElementById('namaSembako') as HTMLInputElement;
-const HargaSembakoInput = document.getElementById('hargaSembako') as HTMLInputElement;
-const tambahSembakoBtn = document.getElementById('tambahSembako') as HTMLButtonElement;
-const sembakoList = document.getElementById('sembakoList') as HTMLUListElement;
+const namaAndaInput = document.getElementById('namaAnda') as HTMLInputElement;
+const namaItemInput = document.getElementById('namaItem') as HTMLInputElement;
+const HargaItem = document.getElementById('hargaItem') as HTMLInputElement;
+const tambahItemBtn = document.getElementById('tambahSembako') as HTMLButtonElement;
+const ItemList = document.getElementById('ItemList') as HTMLUListElement;
 
-// Definisikan sebuah interface untuk objek Sembako
-interface Sembako {
-  name: string;
-  value: number;
+
+interface Item {
+    name: string;
+    name: string;
+    value: number;
 }
 
-// Buat sebuah array kosong untuk menyimpan data-data sembako
-const lists: Sembako[] = [];
+const lists: Item[] = [];
 
-// Buat fungsi untuk menampilkan data-data sembako dalam list
-function displaySembako() {
-    // Kosongkan list yang sudah ada
-    sembakoList.innerHTML = '';
 
-    // Lakukan perulangan melalui setiap data dalam array dan buat item list untuknya
+function displayItem() {
+    ItemList.innerHTML = '';
+
     lists.forEach((data, index) => {
         const li = document.createElement('li');
-        li.innerText = `${index + 1}. ${data.name} - Rp. ${data.value}`;
-        sembakoList.appendChild(li);
+        li.innerText = `${index}. ${data.name} - ${data.nama} - Rp. ${data.value}`;
+        ItemList.appendChild(li);
     });
 }
 
-// Tambahkan event listener saat tombol "Tambah Sembako" diklik
-tambahSembakoBtn.addEventListener('click', () => {
-    // Dapatkan nilai dari nama sembako dan harga dari input field
-    const namaSembako = NamaSembakoInput.value;
-    const hargaSembako = Number(HargaSembakoInput.value);
+tambahItemBtn.addEventListener('click', () => {
+ 
+    const namaAnda = NamaAndaInput.value;
+    const namaItem = NamaItemInput.value;
+    const hargaItem = Number(HargaItemInput.value);
 
-    // Periksa apakah keduanya (nama dan harga sembako) sudah diisi
-    if (namaSembako && hargaSembako) {
-        // Buat objek data baru dengan nilai yang telah diisi
-        const newSembako: Sembako = {
-            name: namaSembako,
-            value: hargaSembako,
+    
+    if (namaAnda && namaItem && hargaItem) {
+        
+        const newItem: Item = {
+            name: namaAnda,
+            name: namaItem,
+            value: hargaItem,
         };
 
-        // Tambahkan data baru ke dalam array lists
-        lists.push(newSembako);
+      
+        lists.push(newItem);
 
-        // Panggil fungsi displaySembako untuk memperbarui list data sembako pada halaman website
-        displaySembako();
-
-        // Kosongkan input fields setelah aset berhasil ditambahkan
-        NamaSembakoInput.value = '';
-        HargaSembakoInput.value = '';
-    } else {
+        
+        displayItem();
+        namaAndaInput.value = '';
+        namaItemInput.value = '';
+        hargaItemInput.value = '';
+    } 
+    
+    else {
         alert("Nama semua bidang harus terisi");
     }
 });

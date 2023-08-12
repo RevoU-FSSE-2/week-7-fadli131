@@ -1,4 +1,4 @@
-# Welcome to Week 8
+# Welcome to Week 7
 Overview Of Financial Tracker Website.
 
 ## 👋 Keep In Touch With Me 
